@@ -18,18 +18,34 @@
 #   - have that function print the letters and print the # of words excluded
 ##############################################################################
 # Imports
+import os
 
 # Body
 
 
-def avoids():
+def avoids(word, forbidden_set):
     """ return True if word NOT forbidden"""
-    ...
+    for char in forbidden_set:
+        if char in word:
+            return False
+        return True
 
 
 def forbidden_prompt():
     """ print count of words NOT forbidden by input"""
-    ...
+    fin = open('words.txt', 'r')
+    lines = fin.readlines()
+
+    input_string = input('Pick 5 letters:  ')
+    input_list = list(input_string)
+
+    forbidden_count = 0
+
+    for word in lines:
+        if avoids(word, input_list):
+            forbidden_count += 1
+    print(forbidden_count)
+
 
 
 def forbidden_param():

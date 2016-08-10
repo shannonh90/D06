@@ -17,11 +17,31 @@
 # Imports
 
 # Body
+#part 1
+
+def uses_only(word, string):
+	for char in word:
+		if char not in string:
+			return False
+		return True
+
+#part 2
+def special_sentence(user_string):
+	fin = open("words.txt", "r")
+	lines = fin.readlines()
+
+	string_list = list(user_string)
+	for word in lines:
+		if uses_only(word.strip(), string_list):
+			print(word.strip())
+
+#im close, but not quite. 
 
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+    pass
+    special_sentence("acefhlo")
 
 if __name__ == '__main__':
     main()
